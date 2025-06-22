@@ -1,5 +1,5 @@
-##TABLE DETAILS
-#PROVIDERS
+### TABLE DETAILS
+## PROVIDERS
 | Column Name      | Data Type | Description                                                                 |
 |------------------|-----------|-----------------------------------------------------------------------------|
 | `id`             | UUID      | Unique identifier for the provider.                                         |
@@ -21,7 +21,7 @@
 | `end_date`       | Timestamp | Date the record stopped being valid. Defaults to `2300-01-01` if current.  |
 | `is_current`     | Boolean   | Flag indicating if the record is the most recent (`true`) or historical.   |
 
-#ALEERGIES
+## ALEERGIES
 | Column Name       | Data Type | Description                                                                 |
 |-------------------|-----------|-----------------------------------------------------------------------------|
 | `start`           | Timestamp | Date the allergy was first recorded.                                        |
@@ -45,7 +45,7 @@
 | `end_date`        | Timestamp | End date of validity (default `2300-01-01`).                                |
 | `is_current`      | Boolean   | Flag indicating if the record is current (`true`) or outdated (`false`).    |
 
-#CAREPLANS
+## CAREPLANS
 | Column Name       | Data Type | Description                                                                 |
 |-------------------|-----------|-----------------------------------------------------------------------------|
 | `id`              | UUID      | Unique care plan ID.                                                        |
@@ -63,7 +63,7 @@
 | `end_date`        | Timestamp | End date of the record (default `2300-01-01`).                              |
 | `is_current`      | Boolean   | Flag for whether this record is the current version.                        |
 
-#CLAIMS
+## CLAIMS
 | Column Name              | Data Type | Description                                                             |
 |--------------------------|-----------|-------------------------------------------------------------------------|
 | `id`                     | UUID      | Unique claim ID.                                                        |
@@ -89,7 +89,7 @@
 | `end_date`               | Timestamp | End date of validity.                                                   |
 | `is_current`             | Boolean   | Is the record currently valid.                                          |
 
-#CLAIMS_TRANSACTIONS
+## CLAIMS_TRANSACTIONS
 | Column Name           | Data Type | Description                                                             |
 |-----------------------|-----------|-------------------------------------------------------------------------|
 | `id`                  | UUID      | Transaction line item ID.                                               |
@@ -126,7 +126,7 @@
 | `end_date`            | Timestamp | End of record validity (default `2300-01-01`).                          |
 | `is_current`          | Boolean   | Whether the record is the latest/current.                               |
 
-#CONDITIONS
+## CONDITIONS
 | Column Name        | Data Type | Description                                                                 |
 |--------------------|-----------|-----------------------------------------------------------------------------|
 | `start`            | Timestamp | Start date of the condition or when it was first diagnosed or noted.       |
@@ -143,7 +143,7 @@
 | `end_date`         | Timestamp | The date this record became outdated or superseded (`2300-01-01` if active).|
 | `is_current`       | Boolean   | Indicates if the record is the most recent (`true`) or historical (`false`).|
 
-#DEVICES
+## DEVICES
 | Column Name       | Data Type | Description                                                                 |
 |-------------------|-----------|-----------------------------------------------------------------------------|
 | `start`           | Timestamp | Date and time when the device was used, implanted, or became active.        |
@@ -159,7 +159,7 @@
 | `end_date`        | Timestamp | Date this record stopped being valid (`2300-01-01` means still active).     |
 | `is_current`      | Boolean   | Indicates if this is the current version (`true`) or historical (`false`).  |
 
-#ENCOUNTERS
+## ENCOUNTERS
 | Column Name          | Data Type | Description                                                                 |
 |----------------------|-----------|-----------------------------------------------------------------------------|
 | `id`                 | UUID      | Unique identifier for the encounter.                                        |
@@ -184,7 +184,7 @@
 | `end_date`           | Timestamp | End date of this version’s validity (default `2300-01-01` if current).     |
 | `is_current`         | Boolean   | `true` if this is the latest version of the record, `false` otherwise.     |
 
-#IMAGING_STUDIES
+## IMAGING_STUDIES
 | Column Name           | Data Type | Description                                                                 |
 |------------------------|-----------|-----------------------------------------------------------------------------|
 | `id`                   | UUID      | Unique identifier for the imaging study record.                             |
@@ -206,7 +206,7 @@
 | `end_date`             | Timestamp | End of the record’s validity (`2300-01-01` if current).                     |
 | `is_current`           | Boolean   | `true` if the record is currently valid; `false` if historical.             |
 
-#IMMUNIZATIONS
+## IMMUNIZATIONS
 | Column Name         | Data Type | Description                                                                 |
 |----------------------|-----------|-----------------------------------------------------------------------------|
 | `date`               | Timestamp | Date and time the immunization was administered.                            |
@@ -222,7 +222,7 @@
 | `end_date`           | Timestamp | End date of the record’s validity (`2300-01-01` if still current).          |
 | `is_current`         | Boolean   | `true` if this is the current version; `false` if it's historical.          |
 
-#MEDICATIONS
+## MEDICATIONS
 | Column Name         | Data Type | Description                                                                 |
 |----------------------|-----------|-----------------------------------------------------------------------------|
 | `start`              | Timestamp | Date and time when the medication was first prescribed/administered.        |
@@ -244,7 +244,7 @@
 | `end_date`           | Timestamp | End of validity (`2300-01-01` if the record is current).                    |
 | `is_current`         | Boolean   | `true` if the record is the latest/current version, `false` if historical.  |
 
-#OBSERVTIONS
+## OBSERVTIONS
 | Column Name         | Data Type | Description                                                                 |
 |---------------------|-----------|-----------------------------------------------------------------------------|
 | `observation_sk`    | BigInt    | Surrogate key or internal unique identifier for the observation.            |
@@ -265,4 +265,143 @@
 | `end_date`          | Timestamp | End of the record’s validity_
 
 
+## ORGANIZATIONS
+| Column Name      | Data Type | Description                                                                 |
+|------------------|-----------|-----------------------------------------------------------------------------|
+| `id`             | UUID      | Unique identifier for the organization.                                     |
+| `name`           | String    | Name of the healthcare organization.                                        |
+| `address`        | String    | Street address of the organization.                                         |
+| `city`           | String    | City where the organization is located.                                     |
+| `state`          | String    | U.S. state abbreviation (e.g., `MA` for Massachusetts).                     |
+| `zip`            | String    | ZIP code for the organization’s location.                                   |
+| `lat`            | Float     | Latitude coordinate for geolocation.                                        |
+| `lon`            | Float     | Longitude coordinate for geolocation.                                       |
+| `revenue`        | Float     | Total revenue of the organization (if available; may be 0.0 for simulated data). |
+| `utilization`    | Integer   | Measure of resource utilization (e.g., visits, encounters); synthetic metric. |
+| `phone_part1`    | String    | Contact phone number of the organization (raw/unparsed).                    |
+| `source_file`    | String    | Source file path (e.g., S3 URI where the CSV data was ingested from).       |
+| `ingestion_time` | Timestamp | Timestamp when the record was ingested into the system.                     |
+| `effective_date` | Timestamp | Start of the record's validity for slowly changing dimension tracking.      |
+| `end_date`       | Timestamp | End of the record's validity (`2300-01-01` if still active).                |
+| `is_current`     | Boolean   | `true` if this is the latest (current) version of the organization record.  |
+
+## PATIENTS
+| Column Name           | Data Type | Description                                                                 |
+|------------------------|-----------|-----------------------------------------------------------------------------|
+| `id`                   | UUID      | Unique identifier for each patient.                                         |
+| `birthdate`            | DateTime  | Patient's date of birth.                                                    |
+| `deathdate`            | DateTime  | Date of death, if applicable (can be null for living patients).            |
+| `ssn`                  | String    | Synthetic Social Security Number.                                           |
+| `drivers`              | String    | Synthetic driver’s license number.                                          |
+| `passport`             | String    | Synthetic passport number.                                                  |
+| `prefix`               | String    | Name prefix (e.g., Mr., Mrs., Ms.).                                         |
+| `first`                | String    | First name of the patient.                                                  |
+| `middle`               | String    | Middle name of the patient.                                                 |
+| `last`                 | String    | Last name of the patient.                                                   |
+| `suffix`               | String    | Name suffix (e.g., Jr., Sr.).                                               |
+| `maiden`               | String    | Maiden name of the patient (may be null).                                   |
+| `marital`              | String    | Marital status (e.g., M for Married, S for Single).                         |
+| `race`                 | String    | Patient's race (e.g., white, black, asian).                                 |
+| `ethnicity`            | String    | Patient's ethnicity (e.g., hispanic, nonhispanic).                          |
+| `gender`               | String    | Gender of the patient (`M` or `F`).                                         |
+| `birthplace`           | String    | City, State, and Country where the patient was born.                        |
+| `address`              | String    | Street address of the patient.                                              |
+| `city`                 | String    | City of residence.                                                          |
+| `state`                | String    | U.S. state abbreviation.                                                    |
+| `county`               | String    | County of residence.                                                        |
+| `fips`                 | String    | Federal Information Processing Standards (FIPS) county code.                |
+| `zip`                  | String    | ZIP code of residence.                                                      |
+| `lat`                  | Float     | Latitude coordinate of residence.                                           |
+| `lon`                  | Float     | Longitude coordinate of residence.                                          |
+| `healthcare_expenses`  | Float     | Total healthcare expenses for the patient.                                  |
+| `healthcare_coverage`  | Float     | Total healthcare coverage received by the patient (e.g., insurance payout). |
+| `income`               | Integer   | Annual income of the patient.                                               |
+| `source_file`          | String    | S3 path to the source CSV file.                                             |
+| `ingestion_time`       | Timestamp | Timestamp when the record was ingested into the system.                     |
+| `effective_date`       | Timestamp | Start of record validity (used for SCD2).                                   |
+| `end_date`             | Timestamp | End of record validity (`2300-01-01` if still current).                     |
+| `is_current`           | Boolean   | `true` if the record is the current version; else `false`.                  |
+
+## PAYER_TRANSITIONS
+| Column Name        | Data Type | Description                                                                 |
+|--------------------|-----------|-----------------------------------------------------------------------------|
+| `patient`          | UUID      | Unique identifier for the patient.                                          |
+| `memberid`         | UUID      | Identifier for the insurance membership or policy.                         |
+| `start_date`       | DateTime  | Start date of the insurance coverage period.                                |
+| `end_date`         | DateTime  | End date of the insurance coverage period (e.g., `2300-01-01` if ongoing). |
+| `payer`            | UUID      | Primary payer organization ID.                                              |
+| `secondary_payer`  | UUID      | Optional secondary payer organization ID (nullable).                        |
+| `plan_ownership`   | String    | Role of the insured in the plan (e.g., `Guardian`, `Self`, `Spouse`).       |
+| `owner_name`       | String    | Name of the plan owner (e.g., parent or guardian).                          |
+| `source_file`      | String    | S3 path to the CSV source file.                                             |
+| `ingestion_time`   | Timestamp | When the record was ingested into the system.                               |
+| `effective_date`   | Timestamp | The timestamp from which this record is considered valid (SCD2 field).      |
+| `is_current`       | Boolean   | Whether this is the current record (`true`) or a historical one (`false`).  |
+
+## PAYERS
+| Column Name              | Data Type | Description                                                                 |
+|--------------------------|-----------|-----------------------------------------------------------------------------|
+| `id`                     | UUID      | Unique identifier for the payer.                                            |
+| `name`                   | String    | Name of the insurance provider (e.g., Medicare, Medicaid).                  |
+| `ownership`              | String    | Type of ownership (e.g., GOVERNMENT, PRIVATE).                              |
+| `address`                | String    | Address of the payer (nullable).                                            |
+| `city`                   | String    | City where the payer is based (nullable).                                   |
+| `state_headquartered`    | String    | State where the payer is headquartered (nullable).                          |
+| `zip`                    | String    | ZIP code of the payer's location (nullable).                                |
+| `phone`                  | String    | Phone number (nullable).                                                    |
+| `amount_covered`         | Float     | Total monetary amount covered by this payer.                                |
+| `amount_uncovered`       | Float     | Total cost not covered by this payer.                                       |
+| `revenue`                | Float     | Revenue generated by this payer.                                            |
+| `covered_encounters`     | Integer   | Number of medical encounters covered.                                       |
+| `uncovered_encounters`   | Integer   | Number of medical encounters not covered.                                   |
+| `covered_medications`    | Integer   | Number of medications covered.                                              |
+| `uncovered_medications`  | Integer   | Number of medications not covered.                                          |
+| `covered_procedures`     | Integer   | Number of procedures covered.                                               |
+| `uncovered_procedures`   | Integer   | Number of procedures not covered.                                           |
+| `covered_immunizations`  | Integer   | Number of immunizations covered.                                            |
+| `uncovered_immunizations`| Integer   | Number of immunizations not covered.                                        |
+| `unique_customers`       | Integer   | Number of unique individuals enrolled.                                      |
+| `qols_avg`               | Float     | Average quality-of-life score across members.                               |
+| `member_months`          | Integer   | Total member-months (members × months enrolled).                            |
+| `source_file`            | String    | S3 path of the source CSV file.                                             |
+| `ingestion_time`         | Timestamp | When the data was ingested.                                                 |
+| `effective_date`         | Timestamp | When the record became effective.                                           |
+| `end_date`               | Timestamp | When the record ends (`2300-01-01` if current).                             |
+| `is_current`             | Boolean   | Indicates if the record is currently valid.                                 |
+
+## PROCEDURES
+| Column Name         | Data Type | Description                                                                 |
+|---------------------|-----------|-----------------------------------------------------------------------------|
+| `procedure_sk`       | Integer   | Surrogate key for the procedure record (unique per record).                |
+| `start`              | Timestamp | Timestamp when the procedure started.                                      |
+| `stop`               | Timestamp | Timestamp when the procedure ended.                                        |
+| `patient`            | UUID      | Foreign key referencing the patient undergoing the procedure.              |
+| `encounter`          | UUID      | Foreign key referencing the encounter associated with the procedure.       |
+| `system`             | String    | Coding system used (e.g., `http://snomed.info/sct`).                        |
+| `code`               | String    | Standardized code representing the procedure.                              |
+| `base_cost`          | Float     | Base cost of the procedure.                                                |
+| `reasoncode`         | String    | Code indicating the reason for the procedure (typically diagnosis).        |
+| `reasondescription`  | String    | Description of the reason code (e.g., diagnosis name).                     |
+| `description_part1`  | String    | Description or name of the procedure.                                      |
+| `description_part2`  | String    | Additional detail or context of the procedure (nullable).                  |
+| `source_file`        | String    | S3 path to the original source CSV file.                                   |
+| `ingestion_time`     | Timestamp | Timestamp when the record was ingested into the system.                    |
+| `effective_date`     | Timestamp | When the record became effective.                                          |
+| `end_date`           | Timestamp | End of the record's validity (`2300-01-01` indicates it's current).        |
+| `is_current`         | Boolean   | Indicates whether the record is currently active.                          |
+
+## SUPPLIES
+| Column Name       | Data Type | Description                                                                 |
+|-------------------|-----------|-----------------------------------------------------------------------------|
+| `date`            | Timestamp | The date when the supply was provided or used.                             |
+| `patient`         | UUID      | Foreign key identifying the patient who received the supply.               |
+| `encounter`       | UUID      | Foreign key identifying the encounter during which the supply was issued.  |
+| `code`            | String    | Standardized code representing the supply item.                            |
+| `description`     | String    | Description of the supply item (e.g., "Dental equipment").                 |
+| `quantity`        | Integer   | The number of units of the supply item provided.                           |
+| `source_file`     | String    | S3 file path from where the record originated.                             |
+| `ingestion_time`  | Timestamp | Timestamp when this record was ingested into the data system.              |
+| `effective_date`  | Timestamp | Date the record became effective (typically same as ingestion).            |
+| `end_date`        | Timestamp | End of the record's validity (e.g., `2300-01-01` means currently active).  |
+| `is_current`      | Boolean   | Boolean flag indicating whether the record is the current valid version.   |
 
