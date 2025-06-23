@@ -21,7 +21,7 @@
 | `end_date`       | Timestamp | Date the record stopped being valid. Defaults to `2300-01-01` if current.  |
 | `is_current`     | Boolean   | Flag indicating if the record is the most recent (`true`) or historical.   |
 
-## ALEERGIES
+## ALLERGIES
 | Column Name       | Data Type | Description                                                                 |
 |-------------------|-----------|-----------------------------------------------------------------------------|
 | `start`           | Timestamp | Date the allergy was first recorded.                                        |
