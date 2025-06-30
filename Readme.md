@@ -98,7 +98,7 @@ s3://synthea001/resource_folder/
 
 ### 5️⃣ Cataloging with AWS Glue Crawler
 
-- Crawls: \`s3://synthea001/cleaning_stage_2/<timestamp>/\`
+- Crawls: \`s3://synthea001/cleaning_stage_2/timestamp/\`
 - Auto-detects schema, partitions
 - Updates Glue Catalog Database
 - Enables SQL access via Athena
