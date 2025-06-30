@@ -69,7 +69,7 @@ s3://synthea001/resource_folder/
 - Drop redundant columns
 - Add ingestion timestamps
 - Output to:  
-  \`s3://synthea001/cleaning_stage_1/<timestamp>/\`
+  \`s3://synthea001/cleaning_stage_1/timestamp/\`
 
 ⏱️ *Exec time: ~15s per file*
 
@@ -84,7 +84,7 @@ s3://synthea001/resource_folder/
 - Handle multivalued columns
 - Apply **SCD Type 2** logic
 - Output:  
-  \`s3://synthea001/cleaning_stage_2/<timestamp>/\`
+  \`s3://synthea001/cleaning_stage_2/timestamp/\`
 
 ---
 
