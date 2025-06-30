@@ -244,7 +244,7 @@
 | `end_date`           | Timestamp | End of validity (`2300-01-01` if the record is current).                    |
 | `is_current`         | Boolean   | `true` if the record is the latest/current version, `false` if historical.  |
 
-## OBSERVTIONS
+## OBSERVATIONS
 | Column Name         | Data Type | Description                                                                 |
 |---------------------|-----------|-----------------------------------------------------------------------------|
 | `observation_sk`    | BigInt    | Surrogate key or internal unique identifier for the observation.            |
