@@ -7,7 +7,6 @@ This repository contains a robust, end-to-end AWS-based data pipeline designed t
 ## 🎯 Pipeline Purpose and Goals
 
 The pipeline converts raw Synthea data into clean, structured, query-optimized datasets for BI and analytics. It is built using **fully managed, serverless AWS services** to ensure:
-- High scalability
 - Minimal operational overhead
 - Easy integration with BI tools like Power BI
 
