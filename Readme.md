@@ -19,7 +19,7 @@ The pipeline converts raw Synthea data into clean, structured, query-optimized d
 | Raw Data Storage     | Amazon S3           | Store unprocessed CSVs from Synthea |
 | Pre-processing       | AWS Glue (PySpark)  | Basic cleanup and normalization |
 | ETL & Transformation | AWS Glue (PySpark)  | Deduplication, cleansing, conversion to Parquet |
-| Metadata Cataloging  | AWS Glue Jobs       | Custom schema management (instead of crawlers) |
+| Metadata Cataloging  | AWS Glue Jobs       | Custom schema management |
 | Query Layer          | Amazon Athena       | Interactive SQL querying |
 | Visualization        | Power BI            | Dashboards and reports |
 
